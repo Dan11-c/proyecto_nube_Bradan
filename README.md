@@ -1,6 +1,6 @@
 # Proyecto 1 · Mi web en AWS: Librería Tinta
 
-**Alumno:** Bradan Espla · 2º DAW · Implantación a la Nube Pública
+**Alumno:** Bradan Espla · 2º DAW · Implantación a la Nube Pública  
 **Entorno:** AWS Academy Learner Lab · región `us-east-1`
 
 🎥 **Vídeo:** [enlace al vídeo](PEGAR_ENLACE_DEL_VIDEO)
@@ -46,6 +46,7 @@ Grupo `libreria-web-sg` (sg-054e08e5f9269b0b5) en libreria-vpc:
 |---|---|---|---|
 | HTTP | 80 | 0.0.0.0/0 | Cualquiera debe poder ver la web |
 | SSH | 22 | 213.0.87.102/32 (Mi IP) | Solo yo debo poder administrar el servidor |
+| SSH | 22 | 37.29.159.144/32 (Mi IP con datos móviles) | La wifi bloquea el puerto 22, así que para conectarme por SSH uso los datos del móvil |
 
 ![Grupo de seguridad](img/b2-sg.jpg)
 

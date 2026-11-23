@@ -1,0 +1,5 @@
+# Claves y credenciales: nunca al repositorio
+*.pem
+*.ppk
+.aws/
+credentials

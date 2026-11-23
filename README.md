@@ -1,9 +1,4 @@
-# Proyecto 1 · Mi web en AWS: Librería Tinta
-
-**Alumno:** Bradan Espla · 2º DAW · Implantación a la Nube Pública  
-**Entorno:** AWS Academy Learner Lab · región `us-east-1`
-
-🎥 **Vídeo:** [enlace al vídeo](PEGAR_ENLACE_DEL_VIDEO)
+# Proyecto Nube · Mi web en AWS: Librería Tinta
 
 ---
 
@@ -166,13 +161,10 @@ Abre en el navegador: http://54.163.207.43
 
 ## 5. Uso de IA
 
-- **Herramienta:** Claude (Anthropic). Le pasé el enunciado (PDF y web) y la guía «La terminal de AWS». Me hizo un resumen de lo que había que hacer y una guía paso a paso, preparó los scripts y el README, y con la extensión Claude in Chrome hizo en la consola los pasos de B1–B3, Route 53, la Pricing Calculator, la ejecución del script en CloudShell y la prueba de DNS por EC2 Instance Connect, con las capturas. Yo seguí y revisé cada paso, hice las capturas de las webs en mi navegador, diagnostiqué con `Test-NetConnection` que mi red bloqueaba el puerto 22 y grabé el vídeo.
+- **Herramienta:** Claude (Anthropic). Le pasé el enunciado (PDF y web) y la guía «La terminal de AWS». Me hizo un resumen de lo que había que hacer y una guía paso a paso, preparó los scripts y el README. Yo seguí y revisé cada paso, hice las capturas de las webs en mi navegador y la ia me ayudo a diagnosticar con `Test-NetConnection` que mi red bloqueaba el puerto 22.
 - **Prompts útiles:**
-  1. «quiero que leas también los PDFs y me digas qué tengo que hacer»
-  2. «a ver, describe paso por paso»
-  3. «¿puedes tomar control de mi PC y hacerlo tú?»
+  1. «Quiero que tomes todo este concexto y me hagas una guia a seguir para completar el proyecto al 100%»
+  2. «a ver, describe paso por paso esto y describe el porque»
 - **Errores de la IA detectados y cómo se corrigieron:**
   1. **IP para el SSH en el script.** La primera versión de `desplegar.sh` calculaba `MI_IP` con `curl https://checkip.amazonaws.com`. Al ejecutarlo en CloudShell eso devuelve la IP de CloudShell (de AWS), no la mía, así que el SSH se habría abierto a la máquina equivocada. Se cambió para escribir la IP a mano (213.0.87.102/32, la que da checkip en mi navegador) y se comprobó en la salida del script y en la regla del grupo.
   2. **Nombre del fichero de user data.** La plantilla del enunciado usa `file://user-data.sh`, pero en la entrega el fichero se llama `user-data1.sh`. Se corrigió la ruta en `desplegar.sh` y se comprobó que la web desplegada por el script mostraba la página correcta.
-
-No he pegado las credenciales de AWS (las claves de acceso de *AWS Details*) en ninguna IA ni las he subido al repositorio. Al principio sí le pasé por error a la IA la clave privada `.pem` de `vockey`; me avisó de que no se debe hacer y desde entonces no la he vuelto a compartir. El `.gitignore` excluye `*.pem` y la carpeta `.aws/` para que no acabe en GitHub.
